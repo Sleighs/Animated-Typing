@@ -1,0 +1,43 @@
+#container {
+  width: 90vw;
+  height: 90vh;
+  padding: 1%;
+  margin: auto;
+}
+
+#name {
+  font-size: 2.5em;
+  /*font-family: "Open Sans";*/
+  letter-spacing: 2px;
+}
+
+#title,
+#log {
+  font-size: 2em;
+  /*font-family: "Open Sans";*/
+  letter-spacing: 2px;
+}
+
+#glyph {
+  font-size: 2.5em;
+  font-family: "Open Sans";
+  animation-name: glyph;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes glyph {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+#init-btn {
+  padding: 10px;
+}
