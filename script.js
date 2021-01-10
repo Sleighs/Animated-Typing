@@ -7,15 +7,15 @@ var initBtn = document.getElementById("init-btn");
 
 // The algorithm types and deletes each word in the array
 var arr = ["ENGINEER", "ARCHITECT", "DEVELOPER"];
-
 var pos = 0;
 var text = arr[pos];
 var typedText = [];
 var newText = "";
 var a = [];
 var reverse = false;
+var interval;
 
-var count = 0;
+//var count = 0;
 
 function getText() {
   // Get word from array
@@ -23,7 +23,7 @@ function getText() {
   // Transform word from string to array
   var newArr = word.split("");
 
-  count += 1;
+  //count += 1;
 
   // Delete text if reverse is true
   if (reverse === true) {
@@ -39,6 +39,14 @@ function getText() {
         typedText = [];
         reverse = false;
 
+        //close after one cycle through word list
+        if (pos === arr.length - 1) {
+          n = "start";
+          initBtn.innerHTML = "Start";
+          clearInterval(interval);
+        }
+
+        // Move to next word or return to first word if at last word
         if (pos < arr.length - 1) {
           pos += 1;
         } else {
@@ -47,7 +55,7 @@ function getText() {
       }
     }
 
-    // Type word if reverse is false
+  // Type word if reverse is false
   } else if (!reverse) {
     a = [];
     // Add next letter in word
@@ -67,12 +75,8 @@ function getText() {
 }
 
 var n = "start";
-var interval;
 
 function init(type) {
-  var rand;
-  console.log(type);
-
   if (type === "stop") {
     n = "start";
     initBtn.innerHTML = "Start";
@@ -82,9 +86,9 @@ function init(type) {
   if (type === "start") {
     n = "stop";
     initBtn.innerHTML = "Stop";
-    interval = setInterval(() => {
+    interval = setInterval((interval) => {
       getText();
       log.innerHTML = newText;
-    }, 100);
+    }, 175);
   }
 }
